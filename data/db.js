@@ -1,39 +1,45 @@
-const db = [
-    {
-        day: "day 1",
-        title: "Construct Quad Tree",
-        link: "https://leetcode.com/problems/construct-quad-tree/submissions/906102169/",
-        difficulty: "medium",
-        author: "Rascal"
-    },
-    {
-        day: "day 2",
-        title: "Find Duplicate Subtrees (binary tree)",
-        link: "https://leetcode.com/problems/find-duplicate-subtrees/submissions/906703642",
-        difficulty: "easy",
-        author: "Rascal"
-    },
-    {
-        day: "day 3",
-        title: "Sort an array (Merge Sort)",
-        link: "https://leetcode.com/submissions/detail/907336519/",
-        difficulty: "medium",
-        author: "DKRuin"
-    },
-    {
-        day: "day 4",
-        title: "String Compression",
-        link: "https://leetcode.com/submissions/detail/907940934/",
-        difficulty: "medium",
-        author: "DKRuin"
-    },
-    {
-        day: "day 5",
-        title: "Find the Index of the First Occurrence in a String",
-        link: "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/submissions/908596172/",
-        difficulty: "hard",
-        author: "Rascal"
-    }
-]
+
+
+//Table layout
+
+// CREATE TABLE info (
+//     day VARCHAR(10)  NOT NULL,
+//     author VARCHAR(20)  NOT NULL,
+//     title VARCHAR(50)  NOT NULL,
+//     link VARCHAR(100)  NOT NULL,
+//     difficulty VARCHAR (10)  NOT NULL
+//   )
+
+//Example
+// day: "day 1",
+// title: "Construct Quad Tree",
+// link: "https://leetcode.com/problems/construct-quad-tree/submissions/906102169/",
+// difficulty: "medium",
+// author: "Rascal"
+
+//Insert
+// INSERT INTO Leetcode_info(day, author, title, link, difficulty)
+// VALUES ('day 2', 'Rascal', 'Find Duplicate Subtrees (binary tree)', 'https://leetcode.com/problems/find-duplicate-subtrees/submissions/906703642', 'medium');
+
+
+
 
 module.exports={db}
+const query = {
+    text: 'SELECT * FROM info'
+  };
+  
+  pool.query(query)
+    .then(res => {
+      console.log(res.rows); // logs all rows in the table
+      pool.end(); // close the connection pool
+    })
+    .catch(err => {
+      console.error('Error executing query', err.stack);
+      pool.end(); // close the connection pool
+    });
+
+
+
+
+
